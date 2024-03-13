@@ -74,9 +74,27 @@
     margin-bottom: 70px;
   }
   
-  .navbar2 h1 {
+.navbar2 h1 {
       font-size: 35px;
       opacity: 1 !important;
       text-align: center;
       margin-top: -68px;
+  }
+
+.loading-spinner{
+    color: white;
+    text-align: center;
+    font-size: 1em;
+    margin-left: 5px;
+  }
+  
+.preloader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -380px;
+
+    
   }

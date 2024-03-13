@@ -1,7 +1,7 @@
   .player{
     background: rgba(255, 255, 255, 0.7);
-    border: 1px solid #bdbdbd;
-    border-radius: 3px;
+    border: 2px solid #000000;
+    border-radius: 10px;
     box-shadow: 0 1px rgba(0, 0, 0, 0.05);
     margin-bottom: 10px;
     width: 100%;
@@ -28,6 +28,7 @@
     display: block;
     width: 128px;
     height: auto;
+    margin-left: 5px;
   }
 
   .footer-card {
@@ -70,4 +71,13 @@
     grid-gap:20px;
     box-sizing: border-box;
     flex-wrap: wrap;
+    margin-top: -340px;
 }
+
+.no-results{
+  color: white;
+  text-align: center;
+  margin-top: -380px;
+  font-size: 1em;
+}
+
