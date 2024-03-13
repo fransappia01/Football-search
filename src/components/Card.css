@@ -1,0 +1,36 @@
+.card-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 280px;
+    
+}
+
+.card {
+    width: 300px;
+    height: 400px;
+    background-color: rgba(148, 150, 151, 0.712);
+    margin: 0 10px;
+    opacity: 1;
+    margin-right: 35px;
+    padding: 10px;
+    text-decoration: none !important;
+    color: inherit;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.10);
+}
+
+.card h2 {
+    font-weight: bold;
+    text-align: center;
+}
+
+.card hr {
+    width: 70%;
+    margin: 10px auto;
+}
+
