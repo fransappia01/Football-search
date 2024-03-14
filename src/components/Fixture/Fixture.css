@@ -1,0 +1,81 @@
+.menu-fixture {
+  background-color: rgb(148, 150, 151);
+  color: rgb(0, 0, 0);
+  padding: 40px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  width: 70%;
+  position: relative; /* Añade posicionamiento relativo */
+
+}
+
+.fixture-container{
+    background-image: url('../../../public/images/2q2q.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+  }
+
+  .loading-spinner-fix{
+    color: white;
+    text-align: center;
+    font-size: 1em;
+    margin-left: 5px;
+  }
+  
+.preloader-fix {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20vh !important;
+
+    
+  }
+
+.fixtures-list{
+  margin-bottom: 50px;  /*Espacio entre ligas container*/
+}
+
+.league-container {
+    text-align: center;
+}
+
+.team-logo{
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: -12px;
+}
+
+/* Estilos para los rectángulos de partido */
+.fixture-item {
+  background-color: #ffffff; /* Color de fondo del rectángulo del partido */
+  border-radius: 8px; /* Bordes redondeados */
+  padding: 10px; /* Espacio interno */
+  margin-bottom: 15px; /* Espacio entre partidos */
+  align-items: center; /* Centrar verticalmente los elementos */
+  width: 70%;
+  margin-bottom: 5px !important;
+  margin: auto;
+}
+
+/* Estilos para el horario del partido */
+.match-time {
+  margin-right: 10px; /* Espacio entre el horario del partido y el escudo del equipo local */
+  font-weight: bold; /* Texto en negrita */
+}
+
+
+/* Estilos para los resultados de los partidos */
+.match-result {
+  margin-left: 10px;
+  margin-right: 10px; 
+}

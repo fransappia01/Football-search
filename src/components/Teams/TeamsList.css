@@ -1,0 +1,133 @@
+.team{
+    background: rgba(255, 255, 255, 0.7);
+    border: 2px solid #000000;
+    border-radius: 10px;
+    box-shadow: 0 1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 10px;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    
+  }
+
+  .team-individual{
+    background: rgba(255, 255, 255, 0.7);
+    border: 2px solid #000000;
+    border-radius: 10px;
+    box-shadow: 0 1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    margin-left: 50%;   /*lo centra*/
+    
+  }
+  .team-name {
+    width: 95%;
+    padding: 5px 0 0 25px;
+    font-size: 20px;
+    text-align: justify;
+    margin-bottom: 8px;
+    margin-left: 15px; 
+  }
+  .team-name a {
+    text-decoration: none;
+    color: #6d4c41 ;
+  }
+  .team-image-block {
+    width: 128px;
+    margin: 10px;
+  }
+  .team-image {
+    display: block;
+    width: 128px;
+    height: auto;
+    margin-left: 15px;
+    margin-right: 50px;
+  }
+
+/*Pantalla notebook*/
+@media only screen and (max-width: 1400px) {
+  .playerslist {
+    margin-top: 4%; 
+    padding: 0 5%; 
+    text-align: center; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+.teams-container {
+    width: 50%; /* Ajusta el ancho al 50% para centrar un equipo */
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  input {
+    width: 350px;
+  }
+  .team {
+    justify-content: center;
+  }
+  .team-name {
+    width: 100%;
+    padding-right: 30px !important;
+  }
+  .book__desc {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  input {
+    width: 280px;
+  }
+  #search-btn {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-top: 2px;
+  }
+}
+
+.teams-container{
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap:20px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    margin-top: -340px;
+    position: relative;
+}
+
+.playerslist {
+    margin-top: 4%; 
+    padding: 0 2%; 
+    text-align: center; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+
+.title-players{
+    top: 20px;
+    transform: translateY(-50%);
+    left: 50%;
+    z-index: 1;
+    font-size: 1em;
+}
+
+.no-results{
+    color: white;
+    text-align: center;
+    margin-top: -380px;
+    font-size: 1em;
+}
+
+.list {
+    width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
+}

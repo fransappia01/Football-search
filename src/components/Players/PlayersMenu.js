@@ -66,11 +66,6 @@ const PlayersMenu = () => {
                 // Mostrar la lista de jugadores cuando la carga haya finalizado
                 <PlayersList searchPlayer={playersList} />
             )}
-            <footer className='footer'>
-                <div className="div">
-                    Created by <h3>franchute</h3>
-                </div>
-            </footer>
         </div>
     );
 };
