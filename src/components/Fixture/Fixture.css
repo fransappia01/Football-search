@@ -1,5 +1,5 @@
 .menu-fixture {
-  background-color: rgb(148, 150, 151);
+  background-color: rgb(148, 150, 151, 0);
   color: rgb(0, 0, 0);
   padding: 40px;
   width: 500px;
@@ -18,6 +18,7 @@
     min-height: 100vh;
     height: 100%;
     width: 100%;
+    background-attachment: fixed;
   }
 
   .loading-spinner-fix{
@@ -52,30 +53,123 @@
   padding: 5px;
   margin-left: 5px;
   margin-right: 5px;
-  margin-bottom: -12px;
+  margin-bottom: -5px;
 }
 
 /* Estilos para los rectángulos de partido */
 .fixture-item {
-  background-color: #ffffff; /* Color de fondo del rectángulo del partido */
-  border-radius: 8px; /* Bordes redondeados */
-  padding: 10px; /* Espacio interno */
-  margin-bottom: 15px; /* Espacio entre partidos */
+  background-color: rgb(148, 150, 151, 0.712); /* Color de fondo del rectángulo del partido */
+  border-radius: 8px;
+  padding: 10px; 
   align-items: center; /* Centrar verticalmente los elementos */
   width: 70%;
   margin-bottom: 5px !important;
   margin: auto;
+  
 }
 
 /* Estilos para el horario del partido */
 .match-time {
-  margin-right: 10px; /* Espacio entre el horario del partido y el escudo del equipo local */
-  font-weight: bold; /* Texto en negrita */
+  background-color: rgba(10, 10, 10, 0.712);
+  border-radius: 8px;
+  padding: 10px; 
+  color: white;
+  position: absolute;
+  left: 20%;
+  width: 50px;
+  font-size: 15px;
+ 
 }
 
 
 /* Estilos para los resultados de los partidos */
 .match-result {
-  margin-left: 10px;
-  margin-right: 10px; 
+  margin-left: 3px;
+  margin-right: 3px; 
+  font-weight: bold; 
+  font-size: 18px;
+  display: inline-block !important;
+  
+}
+
+.league-title{
+  background-color: rgba(10, 10, 10, 0.712);
+  border-radius: 8px;
+  width: 40%;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin: auto;
+  font-size: 20px;
+}
+
+.goal-info {
+  display: flex;
+  flex-direction: column; /* Mostrar los goles en una columna */
+  align-items: center; /* Centrar horizontalmente los elementos */
+}
+
+.goal-details {
+  width: 95%;
+  height: 15px;
+  display: flex;
+  flex-direction: row;
+}
+
+.home_scorer{
+  font-size: 10px;
+  text-align: center;
+  width: 400px; 
+
+}
+
+.away_scorer{
+  font-size: 10px;
+  text-align: center;
+  width: 400px;
+ 
+
+}
+
+
+.match-info {
+  display: flex; /* Establece el contenedor como un flexbox */
+  align-items: center; 
+  justify-content: space-around; /* Distribuye uniformemente los elementos a lo largo del contenedor */
+}
+
+.match-info .div1{
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 70px;
+  padding: 15px;
+}
+.match-info .div2{
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  margin-left: -250px;
+  margin-right: -250px;
+  width: 70px;
+  padding: 15px;
+}
+.match-info .div3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 70px;
+  padding: 15px;
+
+}
+
+.match-result-penalty-home{
+  color: red;
+  font-weight: 600;
+
+}
+
+.match-result-penalty-away{
+  color: red;
+  font-weight: 600;
 }

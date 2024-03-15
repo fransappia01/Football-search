@@ -9,22 +9,29 @@ const FixturesMenu = () => {
     const [fixtures, setFixtures] = useState([]);
     const [loading, setLoading] = useState(true); 
 
-    const LessHoursToEventTime = (eventTime) => {
-        // Separar la hora y los minutos
-        const [hour, minutes] = eventTime.split(':');
-        
-        // Crear un nuevo objeto de fecha
-        const date = new Date();
-        
-        // Establecer la hora y los minutos del objeto de fecha
-        date.setHours(parseInt(hour) - 4);
-        date.setMinutes(minutes);
+    // Funcion para manejar el modal del horario del partido
+    const LessHoursToEventTime = (eventTime, eventStatus) => {
+        if (eventStatus === 'Finished' || eventStatus === 'After Pen.' || eventStatus === 'After ET') {
+            return 'Final';
 
-        // Formatear la nueva hora
-        const newHour = String(date.getHours()).padStart(2, '0');
-        const newMinutes = String(date.getMinutes()).padStart(2, '0');
-
-        return `${newHour}:${newMinutes}`;
+        } else if (eventStatus === 'Half Time'){
+            return 'Entre tiempo';
+            
+        }else if (eventStatus !=='') {
+            return `${eventStatus}'`;
+        } else {
+            // Separar la hora y los minutos
+            const [hour, minutes] = eventTime.split(':');
+            const date = new Date();
+            date.setHours(parseInt(hour) - 4);
+            date.setMinutes(minutes);
+    
+            // Formatear la nueva hora
+            const newHour = String(date.getHours()).padStart(2, '0');
+            const newMinutes = String(date.getMinutes()).padStart(2, '0');
+    
+            return `${newHour}:${newMinutes}`;
+        }
     };
 
     useEffect(() => {
@@ -143,18 +150,35 @@ const FixturesMenu = () => {
                         // Mapear las ligas y sus fixtures correspondientes
                         .map((league, id) => (
                             <div key={id} className="league-container">
-                                <h2>{league.league_name}</h2>
+                                <h2 className='league-title'>{league.league_name}</h2>
                                 <div className="fixtures-list">
-                                    {league.fixtures.map((fixture, index) => (
-                                        <div key={index} className="fixture-item">                                      
-                                            <p>
-                                                <span className='match-hour'>{LessHoursToEventTime(fixture.event_time)}</span>
+                                {league.fixtures.map((fixture, index) => (
+                                        <div key={index} className="fixture-item">
+                                            <div className="match-info">
+                                                <div className='match-time' style={{ backgroundColor: fixture.event_status !== '' ? 'green' : 'rgba(10, 10, 10, 0.712)' }}> {/*Si se esta jugando, los minutos en verde*/}
+                                                    {LessHoursToEventTime(fixture.event_time, fixture.event_status )}</div>
+                                                <div className= 'div1'> 
                                                 <img src={fixture.home_team_logo} className="team-logo" />
                                                 <span className= "match-team-name">{fixture.event_home_team}</span>
-                                                <span className="match-result">{fixture.event_final_result}</span>
-                                                <span className="match-team-name">{fixture.event_away_team}</span>
-                                                <img src={fixture.away_team_logo} alt={fixture.event_away_team} className="team-logo" />
-                                            </p>
+                                                </div>
+                                                <div className= 'div2'> 
+                                                <span className="match-result-penalty-home">{fixture.event_penalty_result && fixture.event_penalty_result.split(' - ')[0]}</span>
+                                                <span className="match-result">{fixture.event_ft_result !== '' ? fixture.event_ft_result : fixture.event_final_result}</span>
+                                                <span className="match-result-penalty-away">{fixture.event_penalty_result && fixture.event_penalty_result.split(' - ')[1]}</span>
+                                                </div>
+                                                <div className= 'div3'>
+                                                <img src={fixture.away_team_logo} className="team-logo" />
+                                                <span className="match-team-name">{fixture.event_away_team}</span>                                               
+                                                </div>
+                                            </div>
+                                            <div className="goal-info">
+                                                {fixture.goalscorers && fixture.goalscorers.map((goal, goalIndex) => (
+                                                    <div key={goalIndex} className="goal-details">
+                                                        <div className='home_scorer'>{goal.home_scorer && `${goal.home_scorer} (${goal.time}')`}</div>
+                                                        <div className='away_scorer'>{goal.away_scorer && `${goal.away_scorer} (${goal.time}')`}</div>
+                                                    </div>
+                                                ))}
+                                            </div>
                                         </div>
                                     ))}
                                 </div>

@@ -66,6 +66,7 @@ const TeamsList = ({ searchTeam }) => {
                         <ul>
                         {sortPlayersByType(teamWithPlayers[0].players).map((player, playerIndex) => (
                                 <li className='list' key={playerIndex}>{player.player_name} - {player.player_type}</li>
+                                
                             ))}
                         </ul>
                     </div>
