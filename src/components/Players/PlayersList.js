@@ -55,7 +55,7 @@ const PlayersList = ({ searchPlayer, onSearch }) => {
                         }}/>
                     </div>
                     <div className="player-country">
-                        <div className="footer-card" title="author">
+                        <div className="footer-card" title={searchPlayer.player_name}>
                             <strong>Nacionalidad:</strong> {searchPlayer.player_country || 'No especificado'}
                         </div>
                         <div className="footer-card">

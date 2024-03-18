@@ -17,6 +17,12 @@ const FixturesMenu = () => {
         } else if (eventStatus === 'Half Time'){
             return 'Entre tiempo';
             
+        } else if (eventStatus === 'Postponed'){
+            return 'Postergado';
+            
+        } else if (eventStatus === 'Abandoned'){
+            return 'Suspendido';
+            
         }else if (eventStatus !=='') {
             return `${eventStatus}'`;
         } else {
@@ -34,25 +40,38 @@ const FixturesMenu = () => {
         }
     };
 
-    useEffect(() => {
-        const getCurrentDate = () => {
-            const now = new Date();
-            now.setHours(now.getHours());
-            const year = now.getFullYear();
-            const month = String(now.getMonth() + 1).padStart(2, '0');
-            const day = String(now.getDate()).padStart(2, '0');
-            return `${year}-${month}-${day}`;
-        };
+    // Funcion obtener fecha de hoy en modo estadounidense para usar en la api
+    const getCurrentDate = () => {
+        const now = new Date();
+        now.setHours(now.getHours());
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    };
 
-        const getNextDay = () => {
-            const now = new Date();
-            now.setDate(now.getDate() + 1); // Agregar un día
-            now.setHours(now.getHours());
-            const year = now.getFullYear();
-            const month = String(now.getMonth() + 1).padStart(2, '0');
-            const day = String(now.getDate()).padStart(2, '0');
-            return `${year}-${month}-${day}`;
-        };
+    // Funcion para mostrar fecha como argentina
+    const getCurrentDateArgFormat = () => {
+        const now = new Date();
+        now.setHours(now.getHours());
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        return `${day}-${month}-${year}`;
+    };
+
+    const getNextDay = () => {
+        const now = new Date();
+        now.setDate(now.getDate() + 1); // Agregar un día
+        now.setHours(now.getHours());
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    };
+
+    useEffect(() => {
+
 
         const fetchData = async () => {
             const currentDate= getCurrentDate();
@@ -70,6 +89,8 @@ const FixturesMenu = () => {
                     const eventDate = fixture.event_date;
                     const eventTime = fixture.event_time;
                     const leagueKey = fixture.league_key;  
+                    const leagueName = fixture.league_name
+
                     if (
                         // asi me traigo los partidos solo del dia de la fecha en Argentina teniendo cuenta horarios europeos
                         (eventDate === currentDate && eventTime >= '04:00' && eventTime <= '23:59'|| (eventDate === nextDay && eventTime >= '00:00' && eventTime <= '03:59')) &&
@@ -77,8 +98,13 @@ const FixturesMenu = () => {
                          leagueKey === 5 || leagueKey === 332 ||
                          leagueKey === 18 || leagueKey === 385 || leagueKey === 3 || leagueKey === 4 || leagueKey === 683 ||
                          leagueKey === 152 || leagueKey === 146 || leagueKey === 377 || leagueKey === 147 ||
-                         leagueKey === 300 || leagueKey === 302 || leagueKey === 383)
-                    ) {
+                         leagueKey === 300 || leagueKey === 302 || leagueKey === 383 ||
+                         leagueKey === 207 || leagueKey === 205 || leagueKey === 384 ||
+                         leagueKey === 175 || leagueKey === 172 || leagueKey === 379 ||
+                         leagueKey === 168 || leagueKey === 165 || leagueKey === 389 ||
+                         leagueKey === 28 || leagueKey === 1 || leagueKey === 356 && leagueName === 'Friendlies - Friendlies 1'  || leagueKey === 633 || leagueKey === 354)
+                    )
+                    {
                         console.log('ENTRE');
                         return true;    // Estas son las Keys de los torneos que me importan (Argentina, Messi, Internacional, Inglaterra, España)
                     }
@@ -104,6 +130,7 @@ const FixturesMenu = () => {
                 <a href="/" className='link'><GoArrowLeft className='back-arrow' /></a>
                 <h1>Football Search</h1>
             </nav>
+            <p className= 'date-title'>Fecha de hoy:  <span className='date-number'>{getCurrentDateArgFormat()}</span></p>
     
             {/* Mostrar el spinner de carga si la variable loading es verdadera */}
             {loading ? (
@@ -112,6 +139,7 @@ const FixturesMenu = () => {
                     <div className="loading-spinner-fix">Cargando...</div>
                 </div>
             ) : (
+                
                 <div className='menu-fixture'>
                     {fixtures
 
@@ -155,9 +183,31 @@ const FixturesMenu = () => {
                                 {league.fixtures.map((fixture, index) => (
                                         <div key={index} className="fixture-item">
                                             <div className="match-info">
-                                                <div className='match-time' style={{ backgroundColor: fixture.event_status !== '' ? 'green' : 'rgba(10, 10, 10, 0.712)' }}> {/*Si se esta jugando, los minutos en verde*/}
+                                                <div className='match-time' style={{ backgroundColor: fixture.event_status === 'Postponed' ||
+                                                                                                      fixture.event_status === 'Suspendido'
+                                                                                                      ? 'red'  :
+                                                                                                      fixture.event_status === 'Finished' || 
+                                                                                                      fixture.event_status === 'After ET' || 
+                                                                                                      fixture.event_status === 'After Pen.' 
+                                                                                                      ? 'black' : 
+                                                                                                      fixture.event_status !== ''   && 
+                                                                                                      fixture.event_status !== 'Postponed' &&
+                                                                                                      fixture.event_status !== 'Finished' && 
+                                                                                                      fixture.event_status !== 'After ET' && 
+                                                                                                      fixture.event_status !== 'After Pen.'
+                                                                                                       ? 'green' : 'rgba(10, 10, 10, 0.712)'}}> 
+                                                                                                      {/*Si se esta jugando, los minutos en verde*/}
+
                                                     {LessHoursToEventTime(fixture.event_time, fixture.event_status )}</div>
                                                 <div className= 'div1'> 
+                                                <div className="red-cards-container">
+                                                   
+                                                {fixture.cards && fixture.cards.some(card => card.card === 'red card' && card.home_fault) && (
+                                                    <div className="red-card" title={fixture.cards.find(card => card.card === 'red card' && card.home_fault) &&
+                                                     `${fixture.cards.find(card => card.card === 'red card' && card.home_fault).home_fault} (${fixture.cards.find(card => card.card === 'red card' && card.home_fault).time}')`}> 
+                                                     </div>
+                                                )}
+                                                </div>
                                                 <img src={fixture.home_team_logo} className="team-logo" />
                                                 <span className= "match-team-name">{fixture.event_home_team}</span>
                                                 </div>
@@ -167,8 +217,16 @@ const FixturesMenu = () => {
                                                 <span className="match-result-penalty-away">{fixture.event_penalty_result && fixture.event_penalty_result.split(' - ')[1]}</span>
                                                 </div>
                                                 <div className= 'div3'>
+                                                <div className="red-cards-container">
+                                                  
+                                                {fixture.cards && fixture.cards.some(card => card.card === 'red card' && card.away_fault) && (
+                                                    <div className="red-card" title={fixture.cards.find(card => card.card === 'red card' && card.away_fault) &&
+                                                     `${fixture.cards.find(card => card.card === 'red card' && card.away_fault).away_fault} (${fixture.cards.find(card => card.card === 'red card' && card.away_fault).time}')`}> 
+                                                     </div>
+                                                )}
+                                                </div>  
                                                 <img src={fixture.away_team_logo} className="team-logo" />
-                                                <span className="match-team-name">{fixture.event_away_team}</span>                                               
+                                                <span className="match-team-name">{fixture.event_away_team}</span>                                           
                                                 </div>
                                             </div>
                                             <div className="goal-info">

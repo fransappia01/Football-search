@@ -38,10 +38,7 @@ const TeamsList = ({ searchTeam }) => {
         });
     });
 
-
-
     return (
-         // mapeo para 1 solo equipo en la busqueda
         <div className="teams-container">
             {teamWithPlayers.length === 1 ? (
                 <div className="team-individual">
@@ -63,27 +60,27 @@ const TeamsList = ({ searchTeam }) => {
                     </div>
                     <div className="playerslist">
                         <h3 className='title-players'>Jugadores</h3>
-                        <ul>
+                        <div>
                         {sortPlayersByType(teamWithPlayers[0].players).map((player, playerIndex) => (
-                                <li className='list' key={playerIndex}>{player.player_name} - {player.player_type}</li>
+                                <div className='list' key={playerIndex}>{player.player_name} - {player.player_type}</div>
                                 
                             ))}
-                        </ul>
+                        </div>
                     </div>
                 </div>
             ) : (
 
                 // mapeo para 2 o mas equipos en la busqueda
-                teamWithPlayers.map((searchTeam, index) => (
+                teamWithPlayers.map((team, index) => (
                     <div key={index} className="team">
                         <div className="team-info">
                             <div className="team-name">
-                                {searchTeam.team_name || 'n/a' }
+                                {team.team_name || 'n/a' }
                             </div>
                             <div className="team-image">
                                 <img
-                                    src={searchTeam.team_logo || Icon}
-                                    alt={searchTeam.team_name}
+                                    src={team.team_logo || Icon}
+                                    alt={team.team_name}
                                     className="team-img"
                                     onError={(e) => {
                                         e.target.onerror = null;
@@ -94,11 +91,11 @@ const TeamsList = ({ searchTeam }) => {
                         </div>
                         <div className="playerslist">
                             <h3 className='title-players'>Jugadores</h3>
-                            <ul>
-                                {sortPlayersByType(searchTeam.players).map((player, playerIndex) => (
-                                    <li className='list' key={playerIndex}>{player.player_name} - {player.player_type}</li>
+                            <div>
+                                {sortPlayersByType(team.players).map((player, playerIndex) => (
+                                    <div className='list' key={playerIndex}>{player.player_name} - {player.player_type}</div>
                                 ))}
-                            </ul>
+                            </div>
                         </div>
                     </div>
                 ))
