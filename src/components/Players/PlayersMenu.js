@@ -44,9 +44,9 @@ const PlayersMenu = () => {
                 {/* Renderiza la imagen del logo solo en pantallas más pequeñas */}
                 
                 <div className="logo-container">
-                    <img src={Logo} alt="logo" className="logo" style={{width: 150, height: 100}}/>
+                    <img src={Logo} alt="logo" className="logo" style={{width: 180, height: 100}}/>
                 </div>
-                
+
                 {/* Renderiza el título en pantallas más grandes */}
                 <h1 className="title">Football Search</h1>
             </nav>
