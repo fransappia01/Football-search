@@ -48,51 +48,10 @@
     margin-right: 50px;
   }
 
-/*Pantalla notebook*/
-@media only screen and (max-width: 1400px) {
-  .playerslist {
-    margin-top: 4%; 
-    padding: 0 5%; 
-    text-align: center; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-}
-.teams-container {
-    width: 50%; /* Ajusta el ancho al 50% para centrar un equipo */
-  }
-}
 
-@media only screen and (max-width: 600px) {
-  input {
-    width: 350px;
-  }
-  .team {
-    justify-content: center;
-  }
-  .team-name {
-    width: 100%;
-    padding-right: 30px !important;
-  }
-  .book__desc {
-    width: 90%;
-  }
-}
-
-@media only screen and (max-width: 320px) {
-  input {
-    width: 280px;
-  }
-  #search-btn {
-    position: relative;
-    display: block;
-    width: 100%;
-    margin-top: 2px;
-  }
-}
 
 .teams-container{
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(2,1fr);
@@ -110,6 +69,8 @@
     display: flex; 
     flex-direction: column; 
     align-items: center; 
+    margin-left: 10%;
+    margin-bottom: 20px;
 }
 
 
@@ -131,3 +92,216 @@
 .list {
     width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
 }
+
+.dt-team{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+
+/*TAMAÑO DE CELULAR*/
+
+@media only screen and (max-width: 600px) {
+    input {
+      width: 350px;
+    }
+
+    .team-name {
+      width: 100%;
+      padding-right: 30px !important;
+    }
+    .team{
+        background: rgba(255, 255, 255, 0.7);
+        border: 2px solid #000000;
+        border-radius: 10px;
+        box-shadow: 0 1px rgba(0, 0, 0, 0.05);
+        margin-bottom: 10px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        
+    }
+    
+    .team-individual{
+        background: rgba(255, 255, 255, 0.7);
+        border: 2px solid #000000;
+        border-radius: 10px;
+        box-shadow: 0 1px rgba(0, 0, 0, 0.05);
+        margin-bottom: 10px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        margin-left: 1%;
+        
+    }
+      
+    .teams-container{
+        width: 90% !important;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-gap:10px;
+        flex-wrap: wrap;
+        margin-top: -340px;
+        position: relative;
+    }
+    .team-img {
+        align-items: center;
+        justify-content: center; 
+        display: flex;
+        width: 120px;
+        height: 120px;
+      }
+
+    .playerslist{
+        font-size: 15px;
+        margin-top: 2% !important; 
+        text-align: center; 
+        display: flex; 
+        flex-direction: row; 
+        margin-left: 2% !important;
+        margin-bottom: 20px;
+    }
+    .team-image-block {
+        width: 128px;
+        margin: 10px;
+    }
+    .team-image {
+        display: block;
+        width: 128px;
+        height: auto;
+        margin-left: 15px;
+        margin-right: 20px;
+    }
+    .team-name {
+        width: 95%;
+        padding: 5px 0 0 25px;
+        font-size: 20px;
+        text-align: justify;
+        margin-bottom: 8px;
+        margin-left: 4px; 
+    }
+    .dt-team{
+        margin-top: 10px;
+        margin-left: 6px;
+    }
+  
+  }
+  
+  /*tamaño tablet*/
+
+
+  @media only screen and (min-width: 601px) and (max-width: 1399px) {
+    input {
+      width: 350px;
+    }
+
+    .team-name {
+      width: 100%;
+      padding-right: 30px !important;
+    }
+    .team{
+        background: rgba(255, 255, 255, 0.7);
+        border: 2px solid #000000;
+        border-radius: 10px;
+        box-shadow: 0 1px rgba(0, 0, 0, 0.05);
+        margin-bottom: 10px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        
+    }
+    
+    .team-individual{
+        background: rgba(255, 255, 255, 0.7);
+        border: 2px solid #000000;
+        border-radius: 10px;
+        box-shadow: 0 1px rgba(0, 0, 0, 0.05);
+        margin-bottom: 10px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        margin-left: 1%;
+        
+    }
+      
+    .teams-container{
+        width: 90% !important;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-gap:10px;
+        flex-wrap: wrap;
+        margin-top: -340px;
+        position: relative;
+    }
+    .team-img {
+        align-items: center;
+        justify-content: center; 
+        display: flex;
+        width: 140px;
+        height: 140px;
+      }
+
+    .playerslist{
+        font-size: 20px;
+        margin-top: 2% !important; 
+        text-align: center; 
+        display: flex; 
+        margin-left: 18% !important;
+        margin-bottom: 20px;
+    }
+    .team-image {
+        display: block;
+        width: 150px;
+        height: auto;
+        margin-left: 10%; 
+    }
+    .team-name {
+        width: 95%;
+        padding: 5px 0 0 25px;
+        font-size: 25px;
+        text-align: justify;
+        margin-bottom: 8px;
+        margin-left: 8px; 
+    }
+    .dt-team{
+        margin-top: 10px;
+        margin-left: 15px;
+        font-size: 20px;
+    }
+  
+  }
+  
+
+  @media only screen and (max-width: 320px) {
+    input {
+      width: 280px;
+    }
+    #search-btn {
+      position: relative;
+      display: block;
+      width: 100%;
+      margin-top: 2px;
+    }
+  }
+
+  /*Pantalla notebook*/
+@media only screen and (max-width: 1400px) {
+    .playerslist {
+      margin-top: 4%; 
+      padding: 0 5%; 
+      text-align: center; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+  }
+  .teams-container {
+      width: 50%; /* Ajusta el ancho al 50% para centrar un equipo */
+    }
+  }
+  

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './TeamsList.css';
 import Icon from '../../icon.png';
 
@@ -10,7 +10,23 @@ const TeamsList = ({ searchTeam }) => {
         return <div className="no-results">No se encontraron resultados</div>;
     }
 
-    // Función para ordenar los jugadores
+    // Agrupar jugadores por equipo y por tipo de posición
+    const groupedPlayersByTeam = teamWithPlayers.map(team => {
+        const groupedPlayers = {
+            'Goalkeepers': [],
+            'Defenders': [],
+            'Midfielders': [],
+            'Forwards': []
+        };
+
+        team.players.forEach(player => {
+            groupedPlayers[player.player_type].push(player);
+        });
+
+        return { ...team, groupedPlayers };
+    });
+
+    // Función para ordenar los jugadores por tipo
     const sortPlayersByType = (players) => {
         const playerTypesOrder = ['Goalkeepers', 'Defenders', 'Midfielders', 'Forwards'];
 
@@ -23,20 +39,6 @@ const TeamsList = ({ searchTeam }) => {
 
         return players;
     };
-
-    // Agrupar jugadores por tipo
-    const groupedPlayers = {
-        'Goalkeepers': [],
-        'Defenders': [],
-        'Midfielders': [],
-        'Forwards': []
-    };
-
-    teamWithPlayers.forEach(team => {
-        team.players.forEach(player => {
-            groupedPlayers[player.player_type].push(player);
-        });
-    });
 
     return (
         <div className="teams-container">
@@ -56,22 +58,24 @@ const TeamsList = ({ searchTeam }) => {
                                     e.target.src = Icon;
                                 }}
                             />
+                            {teamWithPlayers[0].coaches && teamWithPlayers[0].coaches.length > 0 && (
+                            <div className='dt-team'><b>DT: </b> {teamWithPlayers[0].coaches[0].coach_name}</div>
+                            )}
                         </div>
                     </div>
                     <div className="playerslist">
-                        <h3 className='title-players'>Jugadores</h3>
-                        <div>
-                        {sortPlayersByType(teamWithPlayers[0].players).map((player, playerIndex) => (
-                                <div className='list' key={playerIndex}>{player.player_name} - {player.player_type}</div>
-                                
-                            ))}
-                        </div>
+                     {Object.entries(groupedPlayersByTeam[0].groupedPlayers).map(([position, players]) => (
+                            <div key={position}>
+                                <h4>{position}</h4>
+                                {sortPlayersByType(players).map((player, playerIndex) => (
+                                    <div className='list' key={playerIndex}>{player.player_name}</div>
+                                ))}
+                            </div>
+                        ))}
                     </div>
                 </div>
             ) : (
-
-                // mapeo para 2 o mas equipos en la busqueda
-                teamWithPlayers.map((team, index) => (
+                groupedPlayersByTeam.map((team, index) => (
                     <div key={index} className="team">
                         <div className="team-info">
                             <div className="team-name">
@@ -87,15 +91,20 @@ const TeamsList = ({ searchTeam }) => {
                                         e.target.src = Icon;
                                     }}
                                 />
+                            {team.coaches && team.coaches.length > 0 && (
+                            <div className='dt-team'><b>DT: </b>{team.coaches[0].coach_name}</div>
+                            )}
                             </div>
                         </div>
                         <div className="playerslist">
-                            <h3 className='title-players'>Jugadores</h3>
-                            <div>
-                                {sortPlayersByType(team.players).map((player, playerIndex) => (
-                                    <div className='list' key={playerIndex}>{player.player_name} - {player.player_type}</div>
-                                ))}
-                            </div>
+                            {Object.entries(team.groupedPlayers).map(([position, players]) => (
+                                <div key={position}>
+                                    <h4>{position}</h4>
+                                    {sortPlayersByType(players).map((player, playerIndex) => (
+                                        <div className='list' key={playerIndex}>{player.player_name}</div>
+                                    ))}
+                                </div>
+                            ))}
                         </div>
                     </div>
                 ))

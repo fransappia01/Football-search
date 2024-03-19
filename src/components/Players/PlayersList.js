@@ -56,10 +56,10 @@ const PlayersList = ({ searchPlayer, onSearch }) => {
                     </div>
                     <div className="player-country">
                         <div className="footer-card" title={searchPlayer.player_name}>
-                            <strong>Nacionalidad:</strong> {searchPlayer.player_country || 'No especificado'}
+                            <strong>Nacionalidad:</strong> {searchPlayer.player_country || 'n/a'}
                         </div>
                         <div className="footer-card">
-                            <strong>Equipo actual:</strong> {searchPlayer.team_name|| 'No especificado'}
+                            <strong>Equipo actual:</strong> {searchPlayer.team_name|| 'n/a'}
                         </div>
                         <div className="footer-card">
                             <strong>Posición:</strong> {searchPlayer.player_type|| 'n/a'}

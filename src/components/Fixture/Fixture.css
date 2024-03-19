@@ -44,7 +44,7 @@
 }
 
 .league-container {
-    text-align: center;
+  text-align: center;
 }
 
 .team-logo{
@@ -208,4 +208,83 @@
   background-color: red;
   align-items: center;
 
+}
+
+
+/*PANTALLA TABLETS*/
+
+@media only screen and (min-width: 700px) and (max-width: 1070px) {  
+  .fixture-item {
+    width: 100%;
+    margin-bottom: 5px !important;
+    margin: auto;
+    
+  }
+  
+  /* Estilos para el horario del partido */
+  .match-time {
+    left: 10%;
+   
+  }
+}
+
+
+/*PANTALLA  CELULARES*/
+
+@media only screen and (max-width: 699px) {  
+  .fixture-item {
+    width: 100%;
+    margin-bottom: 5px !important;
+    margin: auto;
+    
+  }
+  
+  /* Estilos para el horario del partido */
+  .match-time {
+    left: 12%;
+    padding: 5px; 
+    font-size: 12px;
+   
+  }
+
+  .league-container {
+    text-align: center;
+}
+
+  .league-title{
+    width: 70%;
+  }
+
+  .match-info .div2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    margin-left: -120px;
+    margin-right: -120px;
+    width: 70px;
+    padding: 15px;
+  }
+
+  .menu-fixture {
+    background-color: rgb(148, 150, 151, 0);
+    color: rgb(0, 0, 0);
+    padding: 40px;
+    width: 80%;
+    position: relative; 
+
+  }
+
+  .date-title{
+    font-size: 15px;
+  }
+  
+  .date-number{
+    font-size: 15px;
+  }
+
+  .team-logo{
+    padding: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
 }

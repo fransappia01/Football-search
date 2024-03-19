@@ -15,13 +15,13 @@ const FixturesMenu = () => {
             return 'Final';
 
         } else if (eventStatus === 'Half Time'){
-            return 'Entre tiempo';
+            return 'ET';
             
         } else if (eventStatus === 'Postponed'){
-            return 'Postergado';
+            return 'Post.';
             
         } else if (eventStatus === 'Abandoned'){
-            return 'Suspendido';
+            return 'Susp.';
             
         }else if (eventStatus !=='') {
             return `${eventStatus}'`;
@@ -43,6 +43,7 @@ const FixturesMenu = () => {
     // Funcion obtener fecha de hoy en modo estadounidense para usar en la api
     const getCurrentDate = () => {
         const now = new Date();
+        now.setDate(now.getDate() - 3);
         now.setHours(now.getHours());
         const year = now.getFullYear();
         const month = String(now.getMonth() + 1).padStart(2, '0');
