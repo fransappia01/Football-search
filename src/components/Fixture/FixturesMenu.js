@@ -109,7 +109,7 @@ const FixturesMenu = () => {
                         console.log('ENTRE');
                         return true;    // Estas son las Keys de los torneos que me importan (Argentina, Messi, Internacional, Inglaterra, España)
                     }
-                    return false; // Excluir todos los demás eventos
+                    return false; // Excluir todos los demas eventos
                 });
                 
                 setFixtures(filteredFixtures);
