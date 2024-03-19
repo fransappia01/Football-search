@@ -74,6 +74,10 @@
     margin-bottom: 70px;
   }
   
+.navbar2 .logo {
+    display: none;
+ }
+
 .navbar2 h1 {
       font-size: 35px;
       opacity: 1 !important;
@@ -152,5 +156,27 @@
 .button:hover {
     background-color: #0056b3;
   }
+
+  .back-arrow{
+    font-size: 30px;
+  }
+  .navbar2 h1 {
+    display: none; /* Ocultar el título en pantallas más pequeñas */
+  }
+
+  .navbar2 .back-arrow {
+    margin-right: auto; /* Mover la flecha hacia la izquierda */
+  }
+
+  .navbar2 .logo {
+    display: block; /* Mostrar el contenedor de la imagen */
+  }
+
+  .logo-container {
+    flex: 1; /* Utiliza todo el espacio disponible */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente el contenido */
+    margin-top: -82px;
+}
 
 }

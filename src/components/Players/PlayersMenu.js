@@ -4,6 +4,7 @@ import '../Home.css';
 import '../Menu.css'
 import PlayersList from './PlayersList';
 import loadingImg from '../../loading.gif'
+import Logo from '../../soccer-logo3.png'
 
 const PlayersMenu = () => {
     const [searchPlayer, setSearchPlayer] = useState('');
@@ -40,7 +41,14 @@ const PlayersMenu = () => {
         <div className="home-container">
             <nav className="navbar2">         
                 <a href="/" className='link'><GoArrowLeft className='back-arrow' /></a>
-                <h1>Football Search</h1>
+                {/* Renderiza la imagen del logo solo en pantallas más pequeñas */}
+                
+                <div className="logo-container">
+                    <img src={Logo} alt="logo" className="logo" style={{width: 150, height: 100}}/>
+                </div>
+                
+                {/* Renderiza el título en pantallas más grandes */}
+                <h1 className="title">Football Search</h1>
             </nav>
             <div className='menu'>
                 <h4 className='title1'>Busca el jugador de fútbol que quieras!</h4>
