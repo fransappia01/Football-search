@@ -80,7 +80,8 @@ const FixturesMenu = () => {
             console.log(nextDay );
             try {
                 setLoading(true);
-                const apiKey = '6edd94573dd41a4c12b0baaad7938939d43615fd745e000ebb77c46037ab2de5';
+                const apiKey = process.env.REACT_APP_KEY;
+                //console.log(apiKey);
                 const response = await fetch(`https://apiv2.allsportsapi.com/football/?&met=Fixtures&APIkey=${apiKey}&from=${currentDate}&to=${nextDay}`);
                 const data = await response.json();
 
