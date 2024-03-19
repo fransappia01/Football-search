@@ -2,7 +2,6 @@
   background-color: rgb(148, 150, 151, 0);
   color: rgb(0, 0, 0);
   padding: 40px;
-  width: 500px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
@@ -266,8 +265,6 @@
   }
 
   .menu-fixture {
-    background-color: rgb(148, 150, 151, 0);
-    color: rgb(0, 0, 0);
     padding: 40px;
     width: 80%;
     position: relative; 

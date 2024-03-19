@@ -43,7 +43,6 @@ const FixturesMenu = () => {
     // Funcion obtener fecha de hoy en modo estadounidense para usar en la api
     const getCurrentDate = () => {
         const now = new Date();
-        now.setDate(now.getDate() - 3);
         now.setHours(now.getHours());
         const year = now.getFullYear();
         const month = String(now.getMonth() + 1).padStart(2, '0');
@@ -246,7 +245,7 @@ const FixturesMenu = () => {
                 </div>
             )}
             <footer className='footers'> 
-                <div className="div"></div> 
+                <div className="div-final"></div> 
             </footer>
         </div>
     );

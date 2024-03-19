@@ -47,10 +47,14 @@
     }
     
     .card {
-        width: 80%; 
+        width: 75%; 
         height: auto; /* Hacer que la altura se ajuste automáticamente al contenido */
         margin: 15px 0; /* Ajustar el margen para separar los cards */
         padding: 30px;
         font-size: 12px; 
+    }
+    
+    .card:hover {
+        transform: scale(1.08);
     }
 }
