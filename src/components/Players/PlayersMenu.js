@@ -21,7 +21,7 @@ const PlayersMenu = () => {
         if (searchPlayer.trim() !== '') {
             try {
                 setLoading(true); // Establecer el estado de carga como verdadero
-                const apiKey = process.env.REACT_APP_KEY;
+                const apiKey = process.env.REACT_APP_KEYS;
                 //console.log(apiKey);
                 const response = await fetch(`https://apiv2.allsportsapi.com/football/?&met=Players&playerName=${searchPlayer}&APIkey=${apiKey}`);
                 const data = await response.json();

@@ -21,7 +21,7 @@ const TeamsMenu = () => {
         if (searchTeam.trim() !== '') {
             try {
                 setLoading(true); // Establecer el estado de carga como verdadero
-                const apiKey = process.env.REACT_APP_KEY;
+                const apiKey = process.env.REACT_APP_CLAVE;
                 //console.log(apiKey);
                 const response = await fetch(`https://apiv2.allsportsapi.com/football/?&met=Teams&teamName=${searchTeam}&APIkey=${apiKey}`);
                 const data = await response.json();
