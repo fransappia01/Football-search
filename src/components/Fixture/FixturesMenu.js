@@ -7,10 +7,9 @@ import EventDetails from './EventDetails'
 import loadingImg from '../../loading.gif'
 import Logo from '../../soccer-logo3.png'
 
-const FixturesMenu = () => {
+const FixturesMenu = ({setSelectedEvent}) => {
     const [fixtures, setFixtures] = useState([]);
     const [loading, setLoading] = useState(true); 
-    const [selectedEvent, setSelectedEvent] = useState(null);
     const navigate = useNavigate();
 
     const handleEventClick = (eventId) => {
@@ -267,7 +266,6 @@ const FixturesMenu = () => {
             <footer className='footers'> 
                 <div className="div-final"></div> 
             </footer>
-                {selectedEvent && <EventDetails eventId={selectedEvent} />}
         </div>
     );
 };
