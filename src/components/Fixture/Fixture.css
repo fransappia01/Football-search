@@ -60,11 +60,11 @@
   background-color: rgb(148, 150, 151, 0.712); /* Color de fondo del rectángulo del partido */
   border-radius: 8px;
   padding: 10px; 
-  align-items: center; /* Centrar verticalmente los elementos */
+  align-items: center;
   width: 70%;
   margin-bottom: 5px !important;
   margin: auto;
-  
+  cursor: pointer;
 }
 
 /* Estilos para el horario del partido */

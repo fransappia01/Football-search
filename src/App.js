@@ -9,7 +9,7 @@ const App = () => {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<FixturesMenu />} />
                 <Route path="/buscar-partidos" element={<FixturesMenu/>} />
                 <Route path="/buscar-jugadores" element={<PlayersMenu />} />
                 <Route path="/buscar-equipos" element={<TeamsMenu />} />

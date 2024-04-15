@@ -1,14 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { GoArrowLeft } from "react-icons/go";
+import { Link, useNavigate} from 'react-router-dom';
 import '../Menu.css';
 import './Fixture.css'
-//import Fixture from './Fixture';
+import EventDetails from './EventDetails'
 import loadingImg from '../../loading.gif'
 import Logo from '../../soccer-logo3.png'
 
 const FixturesMenu = () => {
     const [fixtures, setFixtures] = useState([]);
     const [loading, setLoading] = useState(true); 
+    const [selectedEvent, setSelectedEvent] = useState(null);
+    const navigate = useNavigate();
+
+    const handleEventClick = (eventId) => {
+        setSelectedEvent(eventId);
+        console.log('clickeado')
+        navigate(`/${eventId}`)
+    };
 
     // Funcion para manejar el modal del horario del partido
     const LessHoursToEventTime = (eventTime, eventStatus) => {
@@ -91,7 +100,8 @@ const FixturesMenu = () => {
                     const eventDate = fixture.event_date;
                     const eventTime = fixture.event_time;
                     const leagueKey = fixture.league_key;  
-                    const leagueName = fixture.league_name
+                    const leagueName = fixture.league_name;
+                    const eventId = fixture.event_key;
 
                     if (
                         // asi me traigo los partidos solo del dia de la fecha en Argentina teniendo cuenta horarios europeos
@@ -190,7 +200,7 @@ const FixturesMenu = () => {
                                 <h2 className='league-title'>{league.league_name}</h2>
                                 <div className="fixtures-list">
                                 {league.fixtures.map((fixture, index) => (
-                                        <div key={index} className="fixture-item">
+                                        <div key={index} className="fixture-item" onClick={() => handleEventClick(fixture.event_key)}>
                                             <div className="match-info">
                                                 <div className='match-time' style={{ backgroundColor: fixture.event_status === 'Postponed' ||
                                                                                                       fixture.event_status === 'Suspendido'
@@ -207,7 +217,8 @@ const FixturesMenu = () => {
                                                                                                        ? 'green' : 'rgba(10, 10, 10, 0.712)'}}> 
                                                                                                       {/*Si se esta jugando, los minutos en verde*/}
 
-                                                    {LessHoursToEventTime(fixture.event_time, fixture.event_status )}</div>
+                                                    {LessHoursToEventTime(fixture.event_time, fixture.event_status )}
+                                                </div>
                                                 <div className= 'div1'> 
                                                 <div className="red-cards-container">
                                                    
@@ -256,6 +267,7 @@ const FixturesMenu = () => {
             <footer className='footers'> 
                 <div className="div-final"></div> 
             </footer>
+                {selectedEvent && <EventDetails eventId={selectedEvent} />}
         </div>
     );
 };
