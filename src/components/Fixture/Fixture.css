@@ -67,6 +67,10 @@
   cursor: pointer;
 }
 
+.fixture-item:hover {
+  background-color: rgba(182, 183, 184, 0.712); /* Color de fondo del rectángulo del partido */
+}
+
 /* Estilos para el horario del partido */
 .match-time {
   background-color: rgba(10, 10, 10, 0.712);
@@ -285,3 +289,4 @@
     margin-right: 2px;
   }
 }
+

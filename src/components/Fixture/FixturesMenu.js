@@ -12,10 +12,10 @@ const FixturesMenu = ({setSelectedEvent}) => {
     const [loading, setLoading] = useState(true); 
     const navigate = useNavigate();
 
-    const handleEventClick = (eventId) => {
-        setSelectedEvent(eventId);
-        console.log('clickeado')
-        navigate(`/${eventId}`)
+    const handleEventClick = (event) => {
+        setSelectedEvent(event);
+        console.log('Evento seleccionado:', event);
+        navigate(`/${event.event_key}`)
     };
 
     // Funcion para manejar el modal del horario del partido
@@ -38,7 +38,7 @@ const FixturesMenu = ({setSelectedEvent}) => {
             // Separar la hora y los minutos
             const [hour, minutes] = eventTime.split(':');
             const date = new Date();
-            date.setHours(parseInt(hour) - 4);
+            date.setHours(parseInt(hour) - 5);
             date.setMinutes(minutes);
     
             // Formatear la nueva hora
@@ -198,8 +198,8 @@ const FixturesMenu = ({setSelectedEvent}) => {
                             <div key={id} className="league-container">
                                 <h2 className='league-title'>{league.league_name}</h2>
                                 <div className="fixtures-list">
-                                {league.fixtures.map((fixture, index) => (
-                                        <div key={index} className="fixture-item" onClick={() => handleEventClick(fixture.event_key)}>
+                                {league.fixtures.map((fixture) => (
+                                        <div key={fixture.event_key} className="fixture-item" onClick={() => handleEventClick(fixture)}>
                                             <div className="match-info">
                                                 <div className='match-time' style={{ backgroundColor: fixture.event_status === 'Postponed' ||
                                                                                                       fixture.event_status === 'Suspendido'

@@ -6,16 +6,18 @@ import FixturesMenu from './components/Fixture/FixturesMenu';
 import PlayersMenu from './components/Players/PlayersMenu';
 import TeamsMenu from './components/Teams/TeamsMenu';
 import EventDetails from './components/Fixture/EventDetails';
+import Formations from './components/Fixture/Formations';
 
 const App = () => {
-    const [eventId, setEventId] = useState(null);
+    const [selectedEvent, setSelectedEvent] = useState(null);
 
     return (
         <Router>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/buscar-partidos" element={<FixturesMenu setSelectedEvent={setEventId} />} />
-                <Route path="/:eventId" element={<EventDetails eventId={eventId} />} />
+                <Route path="/buscar-partidos" element={<FixturesMenu setSelectedEvent={setSelectedEvent} />} />
+                {selectedEvent && <Route path={`/${selectedEvent.event_key}`} element={<EventDetails selectedEvent={selectedEvent} />} />}
+                {selectedEvent && <Route path={`/${selectedEvent.event_key}`} element={<Formations selectedEvent={selectedEvent} />} />}
                 <Route path="/buscar-jugadores" element={<PlayersMenu />} />
                 <Route path="/buscar-equipos" element={<TeamsMenu />} />
             </Routes>

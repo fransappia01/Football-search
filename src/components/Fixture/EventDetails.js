@@ -1,122 +1,78 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { GoArrowLeft } from "react-icons/go";
-import { Link, useNavigate} from 'react-router-dom';
-import '../Menu.css';
-import './Fixture.css'
-import loadingImg from '../../loading.gif'
-import Logo from '../../soccer-logo3.png'
+import loadingImg from '../../loading.gif';
+import Logo from '../../soccer-logo3.png';
+import './Fixture.css';
+import './Event.css'
+import Formations from './Formations';
+import { useNavigate, Link } from 'react-router-dom';
 
-const EventDetails = ({eventId}) => {
-    const [fixtures, setFixtures] = useState([]);
-    const [loading, setLoading] = useState(true); 
+const EventDetails = ({ selectedEvent }) => {
+
+    // Acceder a las propiedades del evento seleccionado mediante destructuración
+    const { event_key, goalscorers, event_away_formation, event_home_formation, home_scorer, away_scorer, time, event_home_team, event_away_team, home_team_logo, event_penalty_result, event_ft_result, event_final_result, away_team_logo} = selectedEvent;
     const navigate = useNavigate();
-
     
     return (
         <div className="fixture-container">
             <nav className="navbar2">         
-                <a href="/" className='link'><GoArrowLeft className='back-arrow' /></a>
-
-                 {/* Renderiza la imagen del logo solo en pantallas más pequeñas */}
+                <Link to="/buscar-partidos" className='link'>
+                    <GoArrowLeft className='back-arrow' />
+                </Link> {/* Corregir el cierre del componente Link */}
+                {/* Renderiza la imagen del logo solo en pantallas más pequeñas */}
                 <div className="logo-container">
-                    <img src={Logo} alt="logo" className="logo" style={{width: 180, height: 100}}/>
+                    <img src={Logo} alt="logo" className="logo" style={{ width: 180, height: 100 }} />
                 </div>
                 
                 {/* Renderiza el título en pantallas más grandes */}
                 <h1 className="title">Football Search</h1>
             </nav>
-    
-            {/* Mostrar el spinner de carga si la variable loading es verdadera */}
-            {loading ? (
-                <div className="preloader-fix">
-                    <img src={loadingImg} alt="Preloader" style={{ width: '30px', height: '30px' }}/>
-                    <div className="loading-spinner-fix">Cargando...</div>
+
+            <div className='fixture-item-event'>
+                <div className='match-info-event'>
+                    <div className= 'div1'> 
+                        <img src={home_team_logo} className="team-logo" />
+                        <span className= "match-team-name">{event_home_team}</span>
+                    </div>
+                    <div className= 'div2'> 
+                        <span className="match-result-penalty-home">{event_penalty_result && event_penalty_result.split(' - ')[0]}</span>
+                        <span className="match-result">{event_ft_result !== '' ? event_ft_result : event_final_result}</span>
+                        <span className="match-result-penalty-away">{event_penalty_result && event_penalty_result.split(' - ')[1]}</span>
+                    </div>
+                    <div className= 'div3'>
+                        <img src={away_team_logo} className="team-logo" />
+                        <span className="match-team-name">{event_away_team}</span>                                           
+                    </div>
                 </div>
-            ) : (
-                
-                <div className='menu-fixture'>
-                    {fixtures
-
-                         // Ordenar las ligas y sus fixtures
-                        .sort((a, b) => {
-                            // Si el pais de la liga es "Argentina", colocar primero
-                            if (a.country_name === "Argentina" && b.country_name !== "Argentina") return -1;
-                            if (b.country_name === "Argentina" && a.country_name !== "Argentina") return 1;
-    
-                            // Si la league_name es "intl", dar prioridad a la league_key 18 (Libertadores)
-                            if (a.country_name === "intl" && b.country_name !== "intl") return -1;
-                            if (b.country_name === "intl" && a.country_name !== "intl") return 1;
-                            if (a.country_name === "intl" && b.country_name === "intl") {
-                                if (a.league_key === 18 && b.league_key !== 18) return -1;
-                                if (b.league_key === 18 && a.league_key !== 18) return 1;
-                            }
-    
-                            // Si no cumple ningún criterio especial, mantener el orden original
-                            return 0;
-                        })
-
-                        // Agrupar los partidos por liga
-                        .reduce((acc, fixture) => {
-                            // Comprobar si ya existe una entrada para esta liga en el acumulador
-                            const leagueIndex = acc.findIndex(item => item.league_name === fixture.league_name);
-                            if (leagueIndex !== -1) {
-                                // Si la liga ya existe, agregar el fixture a la lista de partidos de esa liga
-                                acc[leagueIndex].fixtures.push(fixture);
-                            } else {
-                                // Si la liga no existe, crear una nueva entrada para la liga y agregar el fixture
-                                acc.push({ league_name: fixture.league_name, fixtures: [fixture] });
-                            }
-                            return acc;
-                        }, [])
-
-                        // Mapear las ligas y sus fixtures correspondientes
-                        .map((league, id) => (
-                            <div key={id} className="league-container">
-                                <h2 className='league-title'>{league.league_name}</h2>
-                                <div className="fixtures-list">
-                                {league.fixtures.map((fixture, index) => (
-                                        <div key={index} className="fixture-item">
-                                            <div className="match-info">
-                                                <div className='match-time' style={{ backgroundColor: fixture.event_status === 'Postponed' ||
-                                                                                                      fixture.event_status === 'Suspendido'
-                                                                                                      ? 'red'  :
-                                                                                                      fixture.event_status === 'Finished' || 
-                                                                                                      fixture.event_status === 'After ET' || 
-                                                                                                      fixture.event_status === 'After Pen.' 
-                                                                                                      ? 'black' : 
-                                                                                                      fixture.event_status !== ''   && 
-                                                                                                      fixture.event_status !== 'Postponed' &&
-                                                                                                      fixture.event_status !== 'Finished' && 
-                                                                                                      fixture.event_status !== 'After ET' && 
-                                                                                                      fixture.event_status !== 'After Pen.'
-                                                                                                       ? 'green' : 'rgba(10, 10, 10, 0.712)'}}> 
-                                                                                                      {/*Si se esta jugando, los minutos en verde*/}
-
-                                                </div>
-                                                <div className= 'div1'> 
-                                                <img src={fixture.home_team_logo} className="team-logo" />
-                                                <span className= "match-team-name">{fixture.event_home_team}</span>
-                                                </div>
-                                                <div className= 'div2'> 
-                                                <span className="match-result-penalty-home">{fixture.event_penalty_result && fixture.event_penalty_result.split(' - ')[0]}</span>
-                                                <span className="match-result">{fixture.event_ft_result !== '' ? fixture.event_ft_result : fixture.event_final_result}</span>
-                                                <span className="match-result-penalty-away">{fixture.event_penalty_result && fixture.event_penalty_result.split(' - ')[1]}</span>
-                                                </div>
-                                                <div className= 'div3'>
-                                                <img src={fixture.away_team_logo} className="team-logo" />
-                                                <span className="match-team-name">{fixture.event_away_team}</span>                                           
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
+                <div className="goal-info">
+                        {goalscorers && goalscorers.map((goal, goalIndex) => (
+                        <div key={goalIndex} className="goal-details">
+                            <div className='home_scorer'>{goal.home_scorer && `${goal.home_scorer} (${goal.time}')`}</div>
+                            <div className='away_scorer'>{goal.away_scorer && `${goal.away_scorer} (${goal.time}')`}</div>
+                        </div>
                         ))}
+                    </div>
+                <div className="modal-content-event">
+                            <button className='button-event' onClick={() => console.log("Alineaciones")}>Alineaciones</button>
+                            <button className='button-event' onClick={() => console.log("Estadísticas")}>Estadísticas</button>
                 </div>
-            )}
-            <footer className='footers'> 
-                <div className="div-final"></div> 
-            </footer>
+                <div className="home-team-formation">
+                    <img src={home_team_logo} className="team-logo" />
+                    <span className='home-team-name-formation'>{event_home_team}</span>
+                    <span className='home-team-formation-number'>{event_home_formation}</span>
+                </div>
+                <div className="alineaciones-container">
+                    <Formations selectedEvent={selectedEvent} />  {/* Renderizar la cancha de fútbol */}
+                </div>
+                <div className="away-team-formation">
+                    <img src={away_team_logo} className="team-logo" />
+                    <span className='away-team-name-formation'>{event_away_team}</span>
+                    <span className='away-team-formation-number'>{event_away_formation}</span>
+                </div>
+                <footer className='footers'> 
+                    <div className="div-final"></div> 
+                </footer>
+            </div>
         </div>
     );
 };
