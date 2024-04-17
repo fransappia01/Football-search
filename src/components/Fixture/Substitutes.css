@@ -1,0 +1,100 @@
+.substitutes-modal {
+    align-items: center;
+    background-color: rgba(148, 150, 151, 0.582);
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 15px;
+    font-size: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.substitutes-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 15px;
+    font-size: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.substitutes-columns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.substitutes-column-local {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 20px;
+    width: 50%;
+}
+
+.substitutes-column-away {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+    width: 50%;
+}
+.substitutes-list-local {
+    list-style: none;
+    padding: 0;
+}
+
+.substitutes-list-away {
+    list-style: none;
+    padding: 0;
+    margin-left: auto; 
+}
+
+.jersey-number {
+    margin-right: 5px;
+    opacity: 0.8;
+}
+
+.dt-modal {
+    align-items: center;
+    background-color: rgba(148, 150, 151, 0.582);
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 15px;
+    font-size: 15px;
+    width: 100%;
+    height: 20%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dt-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 15px;
+    font-size: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dt-names {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
+    padding: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.stadium-modal {
+    align-items: center;
+    background-color: rgba(148, 150, 151, 0.582);
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 15px;
+    font-size: 15px;
+    width: 100%;
+    height: 20%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

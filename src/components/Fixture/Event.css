@@ -48,21 +48,32 @@
     width: 100%;
     margin-top: 20px;
     margin-bottom: 5px;
-    padding: 5px;
     background-color: rgba(148, 150, 151, 0.582);
   }
-  
-  .button-event{
-    border-radius: 8px;
-    padding: 5px;
-    margin-right: 10px;
-    margin-left: 10px;
+  .button-event {
+    padding: 10px;
     cursor: pointer;
-  }
-  
-  .button-event:hover{
+    width: 50%;
+    font-size: 17px;
+    background-color: transparent;
+    border: none; 
+    box-shadow: none;
+}
+
+.button-event.selected {
+    background-color: rgba(206, 203, 203, 0.418); 
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5); 
+}
+
+.button-event.selected:hover {
+    background-color: rgba(206, 203, 203, 0.418); 
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5); 
+}
+
+.button-event:hover {
     background-color: rgba(196, 197, 197, 0.582);
-  }
+}
+
   
   /* Estilos para la cancha de fútbol */
   .football-field {
@@ -270,3 +281,29 @@
     padding: 5px 1px 5px 15px;
     border-radius: 40px;
 }
+
+.team-logo-event{
+    width: 60px;
+    height: 60px;
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: -5px;
+  }
+
+  .match-result-event {
+    margin-left: 3px;
+    margin-right: 3px; 
+    font-weight: bold; 
+    font-size: 25px;
+    display: inline-block !important;
+  }
+
+  .match-result-penalty-home-event,
+  .match-result-penalty-away-event{
+    color: red;
+    font-weight: 700;
+    font-size: 20px;
+  
+  }
+  

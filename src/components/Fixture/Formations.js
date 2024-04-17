@@ -110,6 +110,8 @@ const  Formations = ({ selectedEvent }) => {
                                 renderPlayers(localPlayers.filter(player => player.player_position === 7 || player.player_position === 8)) :
                             event_home_formation.startsWith('3') && event_home_formation.charAt(2) === '5' ?
                                 renderPlayers(localPlayers.filter(player => player.player_position === 5 || player.player_position === 6 || player.player_position === 7 || player.player_position === 8 || player.player_position === 9)) :
+                            event_home_formation.startsWith('3') && event_home_formation.charAt(2) === '4' ?
+                                renderPlayers(localPlayers.filter(player => player.player_position === 5 || player.player_position === 6 || player.player_position === 7 || player.player_position === 8)) :
                             null
                             }
                         </>
@@ -169,6 +171,8 @@ const  Formations = ({ selectedEvent }) => {
                         renderPlayers(localPlayers.filter(player => player.player_position === 9 || player.player_position === 10 || player.player_position === 11)) :
                     event_home_formation.length === 5  && event_home_formation.startsWith('3') && event_home_formation.charAt(2) === '5' && event_home_formation.charAt(4) === '2' ?
                         renderPlayers(localPlayers.filter(player => player.player_position === 10 || player.player_position === 11)) :
+                    event_home_formation.length === 5  && event_home_formation.startsWith('3') && event_home_formation.charAt(2) === '4' && event_home_formation.charAt(4) === '3' ?
+                        renderPlayers(localPlayers.filter(player => player.player_position === 9 ||player.player_position === 10 || player.player_position === 11)) :
                     null
                     }
 
@@ -231,6 +235,8 @@ const  Formations = ({ selectedEvent }) => {
                         renderPlayersAway(awayPlayers.filter(player => player.player_position === 9 || player.player_position === 10 || player.player_position === 11)) :
                     event_away_formation.length === 5  && event_away_formation.startsWith('3') && event_away_formation.charAt(2) === '5' && event_away_formation.charAt(4) === '2' ?
                         renderPlayersAway(awayPlayers.filter(player => player.player_position === 10 || player.player_position === 11)) :
+                    event_away_formation.length === 5  && event_away_formation.startsWith('3') && event_away_formation.charAt(2) === '4' && event_away_formation.charAt(4) === '3' ?
+                        renderPlayersAway(awayPlayers.filter(player => player.player_position === 9 ||player.player_position === 10 || player.player_position === 11)) :
                     null
                     }
 
@@ -288,6 +294,8 @@ const  Formations = ({ selectedEvent }) => {
                                 renderPlayersAway(awayPlayers.filter(player => player.player_position === 7 || player.player_position === 8)) :
                             event_away_formation.startsWith('3') && event_away_formation.charAt(2) === '5' ?
                                 renderPlayersAway(awayPlayers.filter(player => player.player_position === 5 || player.player_position === 6 || player.player_position === 7 || player.player_position === 8 || player.player_position === 9)) :
+                            event_away_formation.startsWith('3') && event_away_formation.charAt(2) === '4' ?
+                                renderPlayersAway(awayPlayers.filter(player => player.player_position === 5 || player.player_position === 6 || player.player_position === 7 || player.player_position === 8)) :
                             null
                             }
                         </>
