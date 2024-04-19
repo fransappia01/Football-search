@@ -1,6 +1,6 @@
 import React from 'react';
 import './TeamsList.css';
-import Icon from '../../icon.png';
+import Icon from '../../assets/icon.png';
 
 const TeamsList = ({ searchTeam }) => {
     const teamWithPlayers = searchTeam && searchTeam.filter(team => Array.isArray(team.players) && team.players.length > 0);

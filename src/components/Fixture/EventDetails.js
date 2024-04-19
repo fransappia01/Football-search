@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { GoArrowLeft } from "react-icons/go";
-import loadingImg from '../../loading.gif';
-import Logo from '../../soccer-logo3.png';
+import Logo from '../../assets/soccer-logo3.png';
 import './Fixture.css';
 import './Event.css'
 import Formations from './Formations';
@@ -12,7 +11,7 @@ import Substitutes from './Substitutes';
 const EventDetails = ({ selectedEvent }) => {
 
     const [selectedButton, setSelectedButton] = useState(null); 
-    const { event_key, goalscorers, event_away_formation, event_home_formation, home_scorer, away_scorer, time, event_home_team, event_away_team, home_team_logo, event_penalty_result, event_ft_result, event_final_result, away_team_logo} = selectedEvent;
+    const { event_status, event_key, goalscorers, event_away_formation, event_home_formation, home_scorer, away_scorer, time, event_home_team, event_away_team, home_team_logo, event_penalty_result, event_ft_result, event_final_result, away_team_logo} = selectedEvent;
     const navigate = useNavigate();
     
     const handleButtonClick = (buttonName) => {
@@ -44,7 +43,14 @@ const EventDetails = ({ selectedEvent }) => {
                     </div>
                     <div className= 'div2'> 
                         <span className="match-result-penalty-home-event">{event_penalty_result && event_penalty_result.split(' - ')[0]}</span>
-                        <span className="match-result-event">{event_ft_result !== '' ? event_ft_result : event_final_result}</span>
+                        <span className="match-result">
+                                                {event_ft_result !== '' && event_status === "After ET" ? 
+                                                    event_final_result :
+                                                    event_ft_result !== '' ? 
+                                                    event_ft_result :
+                                                    event_final_result
+                                                }
+                                                </span>
                         <span className="match-result-penalty-away-event">{event_penalty_result && event_penalty_result.split(' - ')[1]}</span>
                     </div>
                     <div className= 'div3'>
@@ -55,8 +61,12 @@ const EventDetails = ({ selectedEvent }) => {
                 <div className="goal-info">
                     {goalscorers && goalscorers.map((goal, goalIndex) => (
                         <div key={goalIndex} className="goal-details">
-                            <div className='home_scorer'>{goal.home_scorer && `${goal.home_scorer} (${goal.time}')`}</div>
-                            <div className='away_scorer'>{goal.away_scorer && `${goal.away_scorer} (${goal.time}')`}</div>
+                            <div className={`home_scorer ${goal.home_scorer && goal.home_scorer.includes('(pen.)') ? 'penalty-goal' : ''}`}>
+                                {goal.home_scorer && `${goal.home_scorer} (${goal.time}')`}
+                            </div>
+                            <div className={`away_scorer ${goal.away_scorer && goal.away_scorer.includes('(pen.)') ? 'penalty-goal' : ''}`}>
+                                {goal.away_scorer && `${goal.away_scorer} (${goal.time}')`}
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -80,8 +90,8 @@ const EventDetails = ({ selectedEvent }) => {
                             <span className='away-team-formation-number'>{event_away_formation}</span>
                         </div>
                         <div className="substitutes-teams">
-                    <Substitutes selectedEvent={selectedEvent} />  
-                </div>
+                            <Substitutes selectedEvent={selectedEvent} />  
+                        </div>
                     </>
                 )}
                 {selectedButton === 'Estadísticas' && (

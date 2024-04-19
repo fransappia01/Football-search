@@ -13,7 +13,24 @@ const Statistics = ({ selectedEvent }) => {
         return stat ? stat : { home: "0", away: "0" };
     };
 
+    // Función para calcular la precisión de los pases
+const calculatePassAccuracy = () => {
+    const passesTotalHome = getStatisticByType('Passes Total').home;
+    const passesTotalAway = getStatisticByType('Passes Total').away;
+    const passesAccurateHome = getStatisticByType('Passes Accurate').home;
+    const passesAccurateAway = getStatisticByType('Passes Accurate').away;
+
+    const passAccuracyHome = (passesAccurateHome * 100) / passesTotalHome;
+    const passAccuracyAway = (passesAccurateAway * 100) / passesTotalAway;
+
+    return {
+        home: passAccuracyHome.toFixed(0), 
+        away: passAccuracyAway.toFixed(0)
+    };
+};
+
     return (
+        <div>
         <div className='stats-modal'>
             <div className="stats-title">
                 <img src={home_team_logo} className="team-logo" style={{ marginRight: 'auto' }} />
@@ -41,9 +58,9 @@ const Statistics = ({ selectedEvent }) => {
                 <td>{getStatisticByType('Passes Total').away}</td>
             </div>
             <div className="stats-row">
-                <td>{getStatisticByType('Passes Accurate').home}</td>
+                <td>{calculatePassAccuracy().home}%</td>
                 <td>Precisión de los pases</td>
-                <td>{getStatisticByType('Passes Accurate').away}</td>
+                <td>{calculatePassAccuracy().away}%</td>
             </div>
             <div className="stats-row">
                 <td>{getStatisticByType('Fouls').home}</td>
@@ -70,6 +87,10 @@ const Statistics = ({ selectedEvent }) => {
                 <td>Tiros de esquina</td>
                 <td>{getStatisticByType('Corners').away}</td>
             </div>
+        </div>
+            <footer className='footers'> 
+                <div className="div-final-stats"></div> 
+            </footer>
         </div>
     );
 };

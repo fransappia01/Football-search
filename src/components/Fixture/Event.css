@@ -36,8 +36,8 @@
     border-radius: 8px;
     padding: 10px; 
     align-items: center;
-    width: 40%;
-    max-width: 40%;
+    width: 60%;
+    max-width: 60%;
     margin: auto;
   }
   
@@ -88,7 +88,7 @@
     width: 100px; 
     height: 50px; 
     border: 2px solid white;
-    opacity: 0.8;
+    opacity: 0.5;
     border-top: none; 
     top: 50%;
     left: 50%;
@@ -100,7 +100,7 @@
     width: 100px; 
     height: 50px; 
     border: 2px solid white;
-    opacity: 0.8;
+    opacity: 0.5;
     border-bottom: none; 
     top: 50%;
     left: 50%;
@@ -112,7 +112,7 @@
     width: 10px;
     height: 10px;
     background-color: white;
-    opacity: 0.8;
+    opacity: 0.5;
     border-radius: 50%;
     top: 50%;
     left: 50%;
@@ -124,7 +124,7 @@
     width: 100%;
     height: 2px;
     background-color: white;
-    opacity: 0.8;
+    opacity: 0.5;
     top: 50%;
     left: 0;
   }
@@ -134,7 +134,7 @@
     width: 100px; 
     height: 100px; 
     border: 2px solid white;
-    opacity: 0.8;
+    opacity: 0.5;
     border-radius: 50%;
     top: 50%;
     left: 50%;
@@ -146,7 +146,7 @@
     width: 240px; 
     height: 90px; 
     border: 2px solid white;
-    opacity: 0.8;
+    opacity: 0.5;
     border-top: none; 
     top: 50%;
     left: 50%;
@@ -158,7 +158,7 @@
     width: 240px; 
     height: 90px; 
     border: 2px solid white;
-    opacity: 0.8;
+    opacity: 0.5;
     border-bottom: none; 
     top: 50%;
     left: 50%;
@@ -170,7 +170,7 @@
     width: 100px; 
     height: 100px; 
     border: 2px solid white;
-    opacity: 0.8;
+    opacity: 0.5;
     border-radius: 50%;
     top: 50%;
     left: 50%;
@@ -183,7 +183,7 @@
     width: 100px; 
     height: 100px; 
     border: 2px solid white;
-    opacity: 0.8;
+    opacity: 0.5;
     border-radius: 50%;
     top: 50%;
     left: 50%;
@@ -301,9 +301,279 @@
 
   .match-result-penalty-home-event,
   .match-result-penalty-away-event{
-    color: red;
+    color: rgb(190, 20, 20);
     font-weight: 700;
     font-size: 20px;
   
   }
   
+  .substitution-arrow {
+    width: 20px;
+    height: 20px;
+    color: green; /* Color de la flecha de sustitución */
+}
+
+.goal-indicator {
+    width: 30px;
+    height: 30px;
+    background-color: orange; /* Color de la pelota de fútbol */
+    color: white;
+    border-radius: 50%; /* Para hacer la pelota de fútbol redonda */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.card-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%; /* Para hacer el indicador de tarjeta redondo */
+}
+
+.yellow-card {
+    background-color: yellow; /* Color de la tarjeta amarilla */
+}
+
+.red-card {
+    background-color: red; /* Color de la tarjeta roja */
+}
+
+.soccer-ball-icon{
+    width: 30px;
+    height: 22px;
+    margin-left: 14px;
+}
+
+.penalty-goal{
+    color: rgb(40, 41, 41);
+}
+
+.cards-container-home{
+    margin-left: 90px;
+    margin-bottom: -10px;
+}
+.card-icon-form-home{
+    width: 10px;
+    height: 15px;  
+}
+
+.cards-container-away{
+    margin-left: 85px;
+    margin-bottom: -10px;
+}
+
+.card-icon-form-away{
+    width: 10px;
+    height: 15px;
+}
+
+.down-arrow-icon{
+    width: 19px;
+    height: 18px;
+    margin-right: 80px;
+}
+
+.sust-local{
+    margin-left: -20px;
+}
+
+.down-arrow-icon-away{
+    width: 19px;
+    height: 18px;
+}
+
+.sust-away{
+    margin-left: -20px ;
+    width: fit-content;
+}
+
+.down-arrow-goal {
+    width: fit-content;
+    margin-top: -24px;
+}
+
+.player-circle-withcard{
+    margin-top: -21px;
+}
+
+
+/*FORMATION Y SUBSTITUTES RESPONSIVE*/
+
+@media only screen and (max-width: 1080px) {  
+    .fixture-item-event {
+        width: 70%;
+        max-width: 70%;
+      }
+      .cards-container-home, .cards-container-away{
+        margin-left: 100px;
+        margin-bottom: -12px;
+    }
+}
+
+@media only screen and (max-width: 900px) {  
+    .fixture-item-event {
+        width: 90%;
+        max-width: 90%;
+      }
+      .cards-container-home, .cards-container-away{
+        margin-left: 100px;
+        margin-bottom: -12px;
+    }
+}
+
+@media only screen and (max-width: 700px) {  
+    .fixture-item-event {
+        width: 90%;
+        max-width: 90%;
+      }
+      .player-number{
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+      }
+      .player-number-away{
+        margin-bottom: 2px;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+      }
+      .player-name, .player-name-away{
+        font-size: 13px !important;
+      }
+      .defender-row, .goalkeeper-row, .midfielder-row, .five-line-position-row, .forward-row{
+        width: 90%;
+        justify-content: center;
+        margin-left: 2%;
+      }
+      .soccer-ball-icon{
+        margin-left: 10px;
+        margin-top: -10px;
+    }
+    .cards-container-home, .cards-container-away{
+        margin-left: 86px;
+        margin-bottom: -12px;
+    }
+}
+
+@media only screen and (max-width: 670px) {  
+    .fixture-item-event {
+        width: 92%;
+        max-width: 92%;
+      }
+      .player-number, .player-number-away{
+        width: 20px;
+        height: 20px;
+        margin-bottom: 3px;
+      }
+      .numero-jugador{
+        margin-left: -5px;
+      }
+      .player-name, .player-name-away{
+        font-size: 13px !important;
+      }
+      .defender-row, .goalkeeper-row, .midfielder-row, .five-line-position-row, .forward-row{
+        width: 90%;
+        justify-content: center;
+        margin-left: 2%;
+      }
+      .cards-container-home, .cards-container-away{
+        margin-left: 85px;
+        margin-bottom: -12px;
+    }
+    .soccer-ball-icon{
+        margin-left: 5px;
+        margin-bottom: 5px;
+    }
+    .sust-local, .sust-away{
+        margin-top: -6px;
+    }
+    .down-arrow-goal {
+        width: fit-content;
+        margin-top: -28px;
+    }
+}
+
+@media only screen and (max-width: 600px) {  
+      .player-number, .player-number-away{
+        width: 20px;
+        height: 20px;
+        margin-bottom: 3px;
+      }
+      .numero-jugador{
+        margin-left: -5px;
+      }
+      .extra-case-5-line {
+        margin-left: -2% !important;
+      }
+      .player-name, .player-name-away{
+        width: fit-content !important;
+      }
+
+      .match-info-event .div2{
+        margin-left: -20%;
+        margin-right: -20%;
+      }
+      .soccer-ball-icon{
+        margin-bottom: 5px;
+    }
+    .cards-container-home{
+        margin-left: 95px;
+        margin-bottom: -10px;
+    }
+    .cards-container-away{
+        margin-left: 85px;
+        margin-bottom: -10px;
+    }
+    .down-arrow-goal {
+        width: fit-content;
+        margin-top: -28px;
+    }
+}
+
+@media only screen and (max-width: 515px) {  
+    .player-name, .player-name-away{
+        font-size: 11px !important;
+      }
+      .cards-container-home{
+        margin-left: 90px;
+        margin-bottom: -10px;
+    }
+    .soccer-ball-icon{
+        margin-bottom: 5px;
+    }
+
+}
+
+@media only screen and (max-width: 470px) {  
+    .player-name, .player-name-away{
+        font-size: 9px !important;
+      }
+
+}
+
+@media only screen and (max-width: 440px) {  
+    .player-name, .player-name-away{
+        font-size: 8px !important;
+      }
+      .down-arrow-goal {
+        width: fit-content;
+        margin-top: -28px;
+    }
+    .extra-case-5-line {
+        margin-left: -6% !important;
+      }
+    .soccer-ball-icon{
+        margin-bottom: 5px;
+    }
+    .cards-container-home{
+        margin-left: 90px;
+        margin-bottom: -10px;
+    }
+    
+    .cards-container-away{
+        margin-left: 70px;
+        margin-bottom: -10px;
+    }
+    
+}

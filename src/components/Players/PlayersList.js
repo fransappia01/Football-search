@@ -1,6 +1,6 @@
 import React from 'react';
 import './PlayersList.css'
-import Icon from '../../icon.png'
+import Icon from '../../assets/icon.png'
 
 const PlayersList = ({ searchPlayer, onSearch }) => {
 

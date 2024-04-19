@@ -12,7 +12,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 15px;
     padding: 5px;
     border-radius: 15px;
     font-size: 20px;
@@ -26,4 +25,17 @@
     margin-right: 20px;
     margin-left: 20px;
     margin-top: 10px;
+}
+
+.div-final-stats{
+    height: 80px;
+}
+
+@media only screen and (max-width: 600px) { 
+    .stats-title {
+        font-size: 17px;
+    }
+    .stats-modal {
+        font-size: 12px;
+    }
 }

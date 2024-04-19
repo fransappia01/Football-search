@@ -4,8 +4,8 @@ import { Link, useNavigate} from 'react-router-dom';
 import '../Menu.css';
 import './Fixture.css'
 import EventDetails from './EventDetails'
-import loadingImg from '../../loading.gif'
-import Logo from '../../soccer-logo3.png'
+import loadingImg from '../../assets/loading.gif'
+import Logo from '../../assets/soccer-logo3.png'
 
 const FixturesMenu = ({setSelectedEvent}) => {
     const [fixtures, setFixtures] = useState([]);
@@ -52,7 +52,7 @@ const FixturesMenu = ({setSelectedEvent}) => {
     // Funcion obtener fecha de hoy en modo estadounidense para usar en la api
     const getCurrentDate = () => {
         const now = new Date();
-        now.setDate(now.getDate() - 3);
+        now.setDate(now.getDate()-1)
         now.setHours(now.getHours());
         const year = now.getFullYear();
         const month = String(now.getMonth() + 1).padStart(2, '0');
@@ -233,7 +233,14 @@ const FixturesMenu = ({setSelectedEvent}) => {
                                                 </div>
                                                 <div className= 'div2'> 
                                                 <span className="match-result-penalty-home">{fixture.event_penalty_result && fixture.event_penalty_result.split(' - ')[0]}</span>
-                                                <span className="match-result">{fixture.event_ft_result !== '' ? fixture.event_ft_result : fixture.event_final_result}</span>
+                                                <span className="match-result">
+                                                {fixture.event_ft_result !== '' && fixture.event_status === "After ET" ? 
+                                                    fixture.event_final_result :
+                                                    fixture.event_ft_result !== '' ? 
+                                                    fixture.event_ft_result :
+                                                    fixture.event_final_result
+                                                }
+                                                </span>
                                                 <span className="match-result-penalty-away">{fixture.event_penalty_result && fixture.event_penalty_result.split(' - ')[1]}</span>
                                                 </div>
                                                 <div className= 'div3'>
@@ -250,13 +257,17 @@ const FixturesMenu = ({setSelectedEvent}) => {
                                                 </div>
                                             </div>
                                             <div className="goal-info">
-                                                {fixture.goalscorers && fixture.goalscorers.map((goal, goalIndex) => (
+                                            {fixture.goalscorers &&
+                                                fixture.goalscorers
+                                                    // Filtrar los goles de penal
+                                                .filter(goal => !goal.home_scorer.includes('(pen.)') && !goal.away_scorer.includes('(pen.)'))
+                                                .map((goal, goalIndex) => (
                                                     <div key={goalIndex} className="goal-details">
                                                         <div className='home_scorer'>{goal.home_scorer && `${goal.home_scorer} (${goal.time}')`}</div>
                                                         <div className='away_scorer'>{goal.away_scorer && `${goal.away_scorer} (${goal.time}')`}</div>
                                                     </div>
-                                                ))}
-                                            </div>
+                                            ))}
+                                        </div>
                                         </div>
                                     ))}
                                 </div>

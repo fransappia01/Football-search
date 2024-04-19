@@ -3,8 +3,8 @@ import { GoArrowLeft } from "react-icons/go";
 import '../Home.css';
 import '../Menu.css'
 import PlayersList from './PlayersList';
-import loadingImg from '../../loading.gif'
-import Logo from '../../soccer-logo3.png'
+import loadingImg from '../../assets/loading.gif'
+import Logo from '../../assets/soccer-logo3.png'
 
 const PlayersMenu = () => {
     const [searchPlayer, setSearchPlayer] = useState('');

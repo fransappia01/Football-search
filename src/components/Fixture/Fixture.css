@@ -168,13 +168,13 @@
 }
 
 .match-result-penalty-home{
-  color: red;
+  color: rgb(187, 25, 25);
   font-weight: 600;
 
 }
 
 .match-result-penalty-away{
-  color: red;
+  color: rgb(187, 25, 25);
   font-weight: 600;
 }
 
@@ -290,3 +290,11 @@
   }
 }
 
+@media only screen and (max-width: 450px) {  
+  .match-team-name{
+    font-size: 13px;
+  }
+  .home_scorer, .away_scorer{
+    font-size: 11px;
+  }
+}
