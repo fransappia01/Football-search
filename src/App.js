@@ -16,14 +16,14 @@ const App = () => {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/buscar-partidos" element={<FixturesMenu setSelectedEvent={setSelectedEvent} />} />
+                {/*<Route path="/" element={<Home />} />*/}
+                <Route path="/" element={<FixturesMenu setSelectedEvent={setSelectedEvent} />} />
                 {selectedEvent && <Route path={`/${selectedEvent.event_key}`} element={<EventDetails selectedEvent={selectedEvent} />} />}
                 {selectedEvent && <Route path={`/${selectedEvent.event_key}`} element={<Formations selectedEvent={selectedEvent} />} />}
                 {selectedEvent && <Route path={`/${selectedEvent.event_key}`} element={<Statistics selectedEvent={selectedEvent} />} />}
                 {selectedEvent && <Route path={`/${selectedEvent.event_key}`} element={<Substitutes selectedEvent={selectedEvent} />} />}
-                <Route path="/buscar-jugadores" element={<PlayersMenu />} />
-                <Route path="/buscar-equipos" element={<TeamsMenu />} />
+                {/*<Route path="/buscar-jugadores" element={<PlayersMenu />} />*/}
+                {/*<Route path="/buscar-equipos" element={<TeamsMenu />} />*/}
             </Routes>
         </Router>
     );

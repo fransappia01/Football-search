@@ -26,7 +26,7 @@ const EventDetails = ({ selectedEvent }) => {
     return (
         <div className="fixture-container">
             <nav className="navbar2">         
-                <Link to="/buscar-partidos" className='link'>
+                <Link to="/" className='link'>
                     <GoArrowLeft className='back-arrow' />
                 </Link>
                 <div className="logo-container">

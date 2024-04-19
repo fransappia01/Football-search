@@ -7,6 +7,7 @@
     width: 90%;
     display: flex;
     flex-wrap: wrap;
+    color: black;
   
   }
   .player-name {
@@ -16,6 +17,7 @@
     text-align: justify;
     margin-bottom: 2px;
     margin-left: 5px; 
+    color: black !important;
   }
 
   .player-image-block {

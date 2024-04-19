@@ -139,7 +139,8 @@ const FixturesMenu = ({setSelectedEvent}) => {
     return (
         <div className="fixture-container">
             <nav className="navbar2">         
-                <a href="/" className='link'><GoArrowLeft className='back-arrow' /></a>
+            <div className='link'><GoArrowLeft className='back-arrow' /></div>
+
 
                  {/* Renderiza la imagen del logo solo en pantallas más pequeñas */}
                 <div className="logo-container">
