@@ -16,8 +16,8 @@ const Substitutes = ({ selectedEvent }) => {
 
     const changes = selectedEvent.substitutes;
 
-    const localDT = selectedEvent.lineups.home_team.coaches[0].coache;
-    const awayDT = selectedEvent.lineups.away_team.coaches[0].coache;    
+    const localDT = selectedEvent.lineups.home_team.coaches && selectedEvent.lineups.home_team.coaches.length > 0 ? selectedEvent.lineups.home_team.coaches[0].coache : '-';
+    const awayDT = selectedEvent.lineups.away_team.coaches && selectedEvent.lineups.away_team.coaches.length > 0 ? selectedEvent.lineups.away_team.coaches[0].coache : '-';
 
     const leftColumn = localSubstitutes;
     const rightColumn = awaySubstitutes;
