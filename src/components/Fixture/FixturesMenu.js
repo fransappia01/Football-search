@@ -52,7 +52,7 @@ const FixturesMenu = ({setSelectedEvent}) => {
     // Funcion obtener fecha de hoy en modo estadounidense para usar en la api
     const getCurrentDate = () => {
         const now = new Date();
-        now.setDate(now.getDate()-1)
+        //now.setDate(now.getDate()-1)
         now.setHours(now.getHours());
         const year = now.getFullYear();
         const month = String(now.getMonth() + 1).padStart(2, '0');
