@@ -247,7 +247,7 @@
     margin-right: 5%;
 }
 
-.player-name{
+.player-name-local{
     font-size: 15px !important;
     color: white;
     margin-left: 35px !important;
@@ -438,7 +438,7 @@
         height: 25px;
         border-radius: 50%;
       }
-      .player-name, .player-name-away{
+      .player-name-local, .player-name-away{
         font-size: 13px !important;
       }
       .defender-row, .goalkeeper-row, .midfielder-row, .five-line-position-row, .forward-row{
@@ -469,7 +469,7 @@
       .numero-jugador{
         margin-left: -5px;
       }
-      .player-name, .player-name-away{
+      .player-name-local, .player-name-away{
         font-size: 13px !important;
       }
       .defender-row, .goalkeeper-row, .midfielder-row, .five-line-position-row, .forward-row{
@@ -506,7 +506,7 @@
       .extra-case-5-line {
         margin-left: -2% !important;
       }
-      .player-name, .player-name-away{
+      .player-name-local, .player-name-away{
         width: fit-content !important;
       }
 
@@ -532,7 +532,7 @@
 }
 
 @media only screen and (max-width: 515px) {  
-    .player-name, .player-name-away{
+    .player-name-local, .player-name-away{
         font-size: 11px !important;
       }
       .cards-container-home{
@@ -546,14 +546,14 @@
 }
 
 @media only screen and (max-width: 470px) {  
-    .player-name, .player-name-away{
+    .player-name-local, .player-name-away{
         font-size: 9px !important;
       }
 
 }
 
 @media only screen and (max-width: 440px) {  
-    .player-name, .player-name-away{
+    .player-name-local, .player-name-away{
         font-size: 8px !important;
       }
       .down-arrow-goal {

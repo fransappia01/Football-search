@@ -74,7 +74,7 @@ const  Formations = ({ selectedEvent }) => {
                         {hasBeenSubstituted && <img src={ArrowDown} alt="down-arrow" className={`down-arrow-icon${hasBeenSubstituted ? ' substituted' : ''}`} />}
                     </div>
                     </div>
-                    <div className={`player-name${hasDownArrowAndGoal ? ' player-name2' : ''}`}>
+                    <div className={`player-name-local${hasDownArrowAndGoal ? ' player-name-local2' : ''}`}>
                         {player.player}
                     </div>
                 </div>
