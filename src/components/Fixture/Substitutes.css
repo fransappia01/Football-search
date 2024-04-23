@@ -51,7 +51,7 @@
 
 .jersey-number {
     margin-right: 8px;
-    opacity: 0.8;
+    color: rgb(68, 67, 67);
 }
 
 .dt-modal {
@@ -255,5 +255,17 @@
         height: 8px;
         margin-left: 50px;
         margin-bottom: -1px;
+    }
+    .substitutes-column-away {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: -70px !important;
+        width: 50%;
+    }
+    
+    .substitutes-list-away {
+        list-style: none;
+        padding: 0;
+        margin-left: auto; 
     }
  }

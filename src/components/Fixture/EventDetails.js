@@ -27,7 +27,7 @@ const EventDetails = ({ selectedEvent }) => {
         <div className="fixture-container">
             <nav className="navbar2">         
                 <Link to="/" className='link'>
-                    <GoArrowLeft className='back-arrow' />
+                    <GoArrowLeft className='back-arrow-event' />
                 </Link>
                 <div className="logo-container">
                     <img src={Logo} alt="logo" className="logo" style={{ width: 180, height: 100 }} />
