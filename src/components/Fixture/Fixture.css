@@ -57,7 +57,7 @@
 
 /* Estilos para los rectángulos de partido */
 .fixture-item {
-  background-color: rgb(148, 150, 151, 0.712); /* Color de fondo del rectángulo del partido */
+  background-color: rgba(148, 150, 151, 0.87); /* Color de fondo del rectángulo del partido */
   border-radius: 8px;
   padding: 10px; 
   align-items: center;
@@ -111,6 +111,7 @@
   flex-direction: column; /* Mostrar los goles en una columna */
   align-items: center; /* Centrar horizontalmente los elementos */
   margin-top: -5px;
+  color: rgb(46, 45, 45);
 }
 
 .goal-details {
@@ -297,4 +298,9 @@
   .home_scorer, .away_scorer{
     font-size: 11px;
   }
+  .fixture-item {
+    padding: 0px 0px 10px 0px !important; 
+    margin-bottom: 12px !important;
+  }
+
 }
