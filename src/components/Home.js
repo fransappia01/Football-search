@@ -6,7 +6,7 @@ const Home = () => {
     return (
         <div className="home-container">
             <nav className="navbar">
-                <h1>Football Search</h1>
+                <h1>Fulbaso</h1>
             </nav>
             <Card />
             <footer className='footer'>

@@ -147,7 +147,7 @@ const FixturesMenu = ({setSelectedEvent}) => {
                 </div>
                 
                 {/* Renderiza el título en pantallas más grandes */}
-                <h1 className="title">Football Search</h1>
+                <h1 className="title">Fulbaso</h1>
             </nav>
             <p className= 'date-title'>Fecha de hoy:  <span className='date-number'>{getCurrentDateArgFormat()}</span></p>
     

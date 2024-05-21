@@ -32,7 +32,7 @@ const EventDetails = ({ selectedEvent }) => {
                 <div className="logo-container">
                     <img src={Logo} alt="logo" className="logo" style={{ width: 180, height: 100 }} />
                 </div>
-                <h1 className="title">Football Search</h1>
+                <h1 className="title">Fulbaso</h1>
             </nav>
 
             <div className='fixture-item-event'>
