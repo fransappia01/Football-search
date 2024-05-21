@@ -65,13 +65,13 @@
   padding: 20px; 
   font-size: 40px;
   margin-top: 13px;
-  color: white;
-
+  color: black;
+  margin-top: 3px;
 }
 
 .link{
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 .navbar2{
@@ -169,22 +169,23 @@
     font-size: 30px;
   }
   .navbar2 h1 {
-    display: none; /* Ocultar el título en pantallas más pequeñas */
+    display: none; 
   }
 
   .navbar2 .back-arrow {
-    margin-right: auto; /* Mover la flecha hacia la izquierda */
+    margin-right: auto; 
   }
 
   .navbar2 .logo {
-    display: block; /* Mostrar el contenedor de la imagen */
+    display: block; 
   }
 
   .logo-container {
-    flex: 1; /* Utiliza todo el espacio disponible */
+    flex: 1; 
     display: flex;
-    justify-content: center; /* Centra horizontalmente el contenido */
+    justify-content: center; 
     margin-top: -82px;
 }
+
 
 }
